@@ -162,7 +162,12 @@ target_link_libraries(Foundation
     CoreFoundation
     uuid
   PUBLIC
-    swiftDispatch)
+  swiftDispatch)
+if("${SWIFT_SYSTEM_NAME}" STREQUAL "musl")
+  target_link_libraries(Foundation
+    PUBLIC
+    fts)
+endif()
 set_target_properties(Foundation PROPERTIES
   INSTALL_RPATH "$ORIGIN"
   BUILD_RPATH "$<TARGET_FILE_DIR:swiftDispatch>"
