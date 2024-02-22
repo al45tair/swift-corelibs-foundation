@@ -21,7 +21,8 @@ target_link_libraries(FoundationXML
 if(NOT BUILD_SHARED_LIBS)
   target_compile_options(FoundationXML
     PRIVATE
-      "SHELL:-Xfrontend -public-autolink-library -Xfrontend xml2")
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend xml2"
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend z")
 
   # Merge private dependencies into single static objects archive
   set_property(TARGET FoundationXML PROPERTY STATIC_LIBRARY_OPTIONS

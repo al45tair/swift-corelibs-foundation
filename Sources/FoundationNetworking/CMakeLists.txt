@@ -70,7 +70,10 @@ target_link_libraries(FoundationNetworking
 if(NOT BUILD_SHARED_LIBS)
   target_compile_options(FoundationNetworking
     PRIVATE
-      "SHELL:-Xfrontend -public-autolink-library -Xfrontend curl")
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend curl"
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend crypto"
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend ssl"
+      "SHELL:-Xfrontend -public-autolink-library -Xfrontend z")
 
   # Merge private dependencies into single static objects archive
   set_property(TARGET FoundationNetworking PROPERTY STATIC_LIBRARY_OPTIONS
